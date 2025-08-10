@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shubhrat Chaursiya — Creative Portfolio</title>
+
+  <!-- Tailwind (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --success: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      --warning: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      --dark: #2d3748;
+      --light: #f7fafc;
+    }
+
+    body{
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      background-attachment: fixed;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    .comic-font {
+      font-family: 'Comic Neue', cursive;
+    }
+
+    /* Animated background particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+    }
+
+    /* Page transitions */
+    .page{ 
+      display: none; 
+      animation: slideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .page.active{ 
+      display: block; 
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Enhanced buttons */
+    .shinchan-btn{
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 25px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .shinchan-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .shinchan-btn:hover::before {
+      left: 100%;
+    }
+
+    .shinchan-btn:hover{ 
+      transform: translateY(-3px) scale(1.05); 
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+
+    /* Active nav button */
+    .nav-btn.active-nav{
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Enhanced cards */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(31, 38, 135, 0.5);
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Profile image animation */
+    .profile-img {
+      border-radius: 50%;
+      border: 5px solid transparent;
+      background: linear-gradient(45deg, #667eea, #764ba2, #f093fb) border-box;
+      animation: profileGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes profileGlow {
+      0% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+      100% { box-shadow: 0 0 40px rgba(240, 147, 251, 0.8); }
+    }
+
+    /* Typing animation enhancement */
+    .typing-container {
+      background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    /* Social links enhancement */
+    .social-link {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.5s;
+    }
+
+    .social-link:hover::before {
+      left: 100%;
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    /* Header enhancement */
+    .header-bg {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Logo animation */
+    .logo-icon {
+      animation: logoSpin 4s linear infinite;
+    }
+
+    @keyframes logoSpin {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(90deg) scale(1.1); }
+      50% { transform: rotate(180deg); }
+      75% { transform: rotate(270deg) scale(1.1); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Section headers */
+    .section-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .section-header::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      border-radius: 2px;
+    }
+
+    /* Form enhancements */
+    .form-input {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid transparent;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Achievement badges */
+    .achievement-badge {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achievement-badge::before {
+      content: '🏆';
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      font-size: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .achievement-badge:hover::before {
+      opacity: 1;
+    }
+
+    /* Responsive navigation */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      
+      .nav-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+    }
+
+    /* Loading animation */
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated background particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Header / Nav -->
+  <header class="header-bg py-4 sticky top-0 z-50 shadow-2xl">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-code text-3xl text-purple-600 logo-icon"></i>
+        <h1 class="text-2xl font-bold comic-font">
+          <span class="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 text-transparent bg-clip-text">
+            Shubhrat Chaursiya
+          </span>
+        </h1>
+      </div>
+
+      <nav>
+        <ul class="flex items-center space-x-2 nav-container">
+          <li><button type="button" data-page="home" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">🏠 Home</button></li>
+          <li><button type="button" data-page="skills" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">💻 Skills</button></li>
+          <li><button type="button" data-page="social" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">🌐 Social</button></li>
+          <li><button type="button" data-page="achievements" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">🏆 Achievements</button></li>
+          <li><button type="button" data-page="Internship" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">💼 Internship</button></li>
+          <li><button type="button" data-page="projects" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">🚀 Projects</button></li>
+          <li><button type="button" data-page="certifications" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">📜 Certifications</button></li>
+          <li><button type="button" data-page="extracurricular" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">🎯 Activities</button></li>
+          <li><button type="button" data-page="contact" class="shinchan-btn nav-btn px-4 py-2 text-sm font-medium">📧 Contact</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HOME ===== -->
+  <main class="py-12">
+    <section id="home" class="page active min-h-screen px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="glass-card p-8 mb-8">
+          <img src="11.jpg"
+               alt="Shubhrat avatar" class="mx-auto profile-img shadow-2xl mb-6 w-48 h-48 object-cover">
+
+          <h2 class="text-4xl font-bold mb-4 comic-font">
+            💫 <span class="section-header">Shubhrat Chaursiya</span>
+          </h2>
+
+          <div class="typing-container">
+            <p align="center">
+              <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=667eea&center=true&vCenter=true&width=700&lines=Aspiring+Software+Developer+%F0%9F%92%BB;UI%2FUX+%26+Graphic+Designer+%F0%9F%8E%A8;Cybersecurity+%26+Java+Enthusiast+%F0%9F%9B%A1%EF%B8%8F;Unity+Game+Programmer+%F0%9F%8E%AE;Always+Learning+%F0%9F%92%AB" alt="Typing SVG" />
+            </p>
+          </div>
+          
+          <p class="text-xl text-gray-700 mb-6 font-medium">Frontend Developer & Graphical Designer with a passion for creative designs.</p>
+
+          <div class="grid md:grid-cols-3 gap-4 mb-6 text-lg">
+            <div class="glass-card p-4">
+              <b>👨‍🎓 Student</b>
+            </div>
+            <div class="glass-card p-4">
+              <b>💻 Developer</b>
+            </div>
+            <div class="glass-card p-4">
+              <b>🎨 Designer</b>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 mb-6">
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+              <div class="flex items-center justify-center gap-2">
+                <i class="fas fa-map-marker-alt text-red-500"></i>
+                <strong>Jaipur, India</strong>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <i class="fas fa-envelope text-blue-500"></i>
+                <strong>shubhratchaursiya2005@gmail.com</strong>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <i class="fas fa-phone text-green-500"></i>
+                <strong>+91 73398 93753</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <a href="https://www.linkedin.com/in/shubhrat-chaursiya-819672354/" class="social-link p-3 rounded-full" target="_blank">
+              <i class="fab fa-linkedin text-blue-600 text-xl"></i>
+            </a>
+            <a href="https://github.com/shubhratchaursiya" class="social-link p-3 rounded-full" target="_blank">
+              <i class="fab fa-github text-gray-800 text-xl"></i>
+            </a>
+            <a href="https://x.com/shubhrat_0829" class="social-link p-3 rounded-full" target="_blank">
+              <i class="fab fa-twitter text-blue-400 text-xl"></i>
+            </a>
+            <a href="https://www.instagram.com/shubhrat_0829/" class="social-link p-3 rounded-full" target="_blank">
+              <i class="fab fa-instagram text-pink-500 text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Enhanced Personal Details -->
+        <div class="glass-card p-8">
+          <h3 class="text-3xl font-bold mb-6 section-header">
+            <i class="fa-solid fa-user-graduate mr-2"></i> Personal Details & Education
+          </h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="skill-card p-4">
+              <i class="fa-solid fa-graduation-cap text-purple-500 text-xl mb-2"></i>
+              <p><strong>Education:</strong> B.Tech IT - Arya College (RTU) - 8.5 CGPA</p>
+            </div>
+            <div class="skill-card p-4">
+              <i class="fa-solid fa-calendar text-blue-500 text-xl mb-2"></i>
+              <p><strong>DOB:</strong> 08-12-2006</p>
+            </div>
+            <div class="skill-card p-4">
+              <i class="fa-solid fa-language text-green-500 text-xl mb-2"></i>
+              <p><strong>Languages:</strong> Hindi, English</p>
+            </div>
+            <div class="skill-card p-4">
+              <i class="fa-solid fa-chess text-orange-500 text-xl mb-2"></i>
+              <p><strong>Hobbies:</strong> Chess, Gaming, Badminton</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-laptop-code"></i> Technical Skills
+        </h2>
+
+        <div class="glass-card p-8">
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="skill-card p-6 text-center">
+              <i class="fa-solid fa-code text-4xl text-blue-600 mb-4"></i>
+              <h3 class="font-bold text-lg mb-2">Programming</h3>
+              <p class="text-sm text-gray-600">C, C++, Java, Python</p>
+            </div>
+
+            <div class="skill-card p-6 text-center">
+              <i class="fa-brands fa-html5 text-4xl text-orange-500 mb-4"></i>
+              <h3 class="font-bold text-lg mb-2">Web Development</h3>
+              <p class="text-sm text-gray-600">HTML, CSS, JavaScript</p>
+            </div>
+
+            <div class="skill-card p-6 text-center">
+              <i class="fa-solid fa-palette text-4xl text-pink-500 mb-4"></i>
+              <h3 class="font-bold text-lg mb-2">Design</h3>
+              <p class="text-sm text-gray-600">UI/UX & Graphic Design</p>
+            </div>
+
+            <div class="skill-card p-6 text-center">
+              <i class="fa-solid fa-shield-halved text-4xl text-green-500 mb-4"></i>
+              <h3 class="font-bold text-lg mb-2">Cybersecurity</h3>
+              <p class="text-sm text-gray-600">Security Tools & Practices</p>
+            </div>
+
+            <div class="skill-card p-6 text-center">
+              <i class="fa-brands fa-unity text-4xl text-gray-700 mb-4"></i>
+              <h3 class="font-bold text-lg mb-2">Game Development</h3>
+              <p class="text-sm text-gray-600">Unity & C# Programming</p>
+            </div>
+
+            <div class="skill-card p-6 text-center">
+              <i class="fa-solid fa-database text-4xl text-purple-500 mb-4"></i>
+              <h3 class="font-bold text-lg mb-2">Database</h3>
+              <p class="text-sm text-gray-600">SQL & Data Management</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOCIAL ===== -->
+    <section id="social" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-share-nodes"></i> Connect With Me
+        </h2>
+
+        <div class="glass-card p-8">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="https://www.instagram.com/shubhrat_0829/" class="social-link p-6 text-center" target="_blank">
+              <i class="fab fa-instagram fa-3x text-pink-500 mb-4"></i>
+              <h3 class="font-bold">Instagram</h3>
+              <p class="text-sm text-gray-600">@shubhrat_0829</p>
+            </a>
+
+            <a href="https://github.com/shubhratchaursiya" class="social-link p-6 text-center" target="_blank">
+              <i class="fab fa-github fa-3x text-gray-800 mb-4"></i>
+              <h3 class="font-bold">GitHub</h3>
+              <p class="text-sm text-gray-600">shubhratchaursiya</p>
+            </a>
+
+            <a href="https://www.linkedin.com/in/shubhrat-chaursiya-819672354/" class="social-link p-6 text-center" target="_blank">
+              <i class="fab fa-linkedin fa-3x text-blue-700 mb-4"></i>
+              <h3 class="font-bold">LinkedIn</h3>
+              <p class="text-sm text-gray-600">Professional Profile</p>
+            </a>
+
+            <a href="https://x.com/shubhrat_0829" class="social-link p-6 text-center" target="_blank">
+              <i class="fab fa-twitter fa-3x text-blue-400 mb-4"></i>
+              <h3 class="font-bold">X (Twitter)</h3>
+              <p class="text-sm text-gray-600">@shubhrat_0829</p>
+            </a>
+
+            <a href="https://t.me/shubhrat_0829" class="social-link p-6 text-center" target="_blank">
+              <i class="fab fa-telegram fa-3x text-blue-500 mb-4"></i>
+              <h3 class="font-bold">Telegram</h3>
+              <p class="text-sm text-gray-600">@shubhrat_0829</p>
+            </a>
+
+            <a href="https://unstop.com/u/shubhcha3051" class="social-link p-6 text-center" target="_blank">
+              <i class="fa-solid fa-award fa-3x text-red-500 mb-4"></i>
+              <h3 class="font-bold">Unstop</h3>
+              <p class="text-sm text-gray-600">Competition Profile</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS ===== -->
+    <section id="achievements" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-trophy"></i> Achievements & Recognition
+        </h2>
+
+        <div class="space-y-8">
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">🏆 Major Achievements</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="achievement-badge skill-card p-6 text-center">
+                <i class="fa-solid fa-chess fa-3x text-yellow-500 mb-4"></i>
+                <h4 class="font-bold">3rd Rank in Chess</h4>
+                <p class="text-sm text-gray-600">Baran District Chess Association (2021)</p>
+              </div>
+
+              <div class="achievement-badge skill-card p-6 text-center">
+                <i class="fa-solid fa-briefcase fa-3x text-blue-500 mb-4"></i>
+                <h4 class="font-bold">Multiple Offer Letters</h4>
+                <p class="text-sm text-gray-600">MicroIT India & Internshala</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">🤝 Volunteership</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="skill-card p-4 text-center">
+                <i class="fa-solid fa-hands-helping text-2xl text-green-500 mb-2"></i>
+                <p class="text-sm"><strong>Plasmid Innovation</strong> (2024)</p>
+              </div>
+              <div class="skill-card p-4 text-center">
+                <i class="fa-solid fa-medal text-2xl text-orange-500 mb-2"></i>
+                <p class="text-sm"><strong>MEME & Devtown</strong> (2025)</p>
+              </div>
+              <div class="skill-card p-4 text-center">
+                <i class="fa-solid fa-university text-2xl text-purple-500 mb-2"></i>
+                <p class="text-sm"><strong>Sphinx - MNIT</strong> (2024)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTERNSHIP ===== -->
+    <section id="Internship" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-briefcase"></i> Professional Experience
+        </h2>
+
+        <div class="glass-card p-8">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="skill-card p-6">
+              <div class="flex items-center mb-4">
+                <i class="fa-solid fa-user-shield text-2xl text-red-500 mr-3"></i>
+                <div>
+                  <h3 class="font-bold">Cybersecurity Intern</h3>
+                  <p class="text-sm text-gray-600">LnB: Learn and Build</p>
+                </div>
+              </div>
+              <p class="text-sm">July 2024 - October 2024</p>
+            </div>
+
+            <div class="skill-card p-6">
+              <div class="flex items-center mb-4">
+                <i class="fa-solid fa-cloud text-2xl text-blue-500 mr-3"></i>
+                <div>
+                  <h3 class="font-bold">Cloud Computing Intern</h3>
+                  <p class="text-sm text-gray-600">MicroIT</p>
+                </div>
+              </div>
+              <p class="text-sm">March 2025 - April 2025</p>
+            </div>
+
+            <div class="skill-card p-6">
+              <div class="flex items-center mb-4">
+                <i class="fa-solid fa-code text-2xl text-green-500 mr-3"></i>
+                <div>
+                  <h3 class="font-bold">Java Developer Intern</h3>
+                  <p class="text-sm text-gray-600">MicroIT</p>
+                </div>
+              </div>
+              <p class="text-sm">April 2025 - May 2025</p>
+            </div>
+
+            <div class="skill-card p-6">
+              <div class="flex items-center mb-4">
+                <i class="fa-solid fa-paint-brush text-2xl text-pink-500 mr-3"></i>
+                <div>
+                  <h3 class="font-bold">UI/UX Designer</h3>
+                  <p class="text-sm text-gray-600">Kainshep</p>
+                </div>
+              </div>
+              <p class="text-sm">June 2025 - July 2025</p>
+            </div>
+
+            <div class="skill-card p-6">
+              <div class="flex items-center mb-4">
+                <i class="fa-solid fa-gamepad text-2xl text-purple-500 mr-3"></i>
+                <div>
+                  <h3 class="font-bold">Unity Game Developer</h3>
+                  <p class="text-sm text-gray-600">Salesforce Academy</p>
+                </div>
+              </div>
+              <p class="text-sm">June 2025 - July 2025</p>
+            </div>
+
+            <div class="skill-card p-6">
+              <div class="flex items-center mb-4">
+                <i class="fa-solid fa-database text-2xl text-indigo-500 mr-3"></i>
+                <div>
+                  <h3 class="font-bold">Data Science Intern</h3>
+                  <p class="text-sm text-gray-600">IIT Guwahati</p>
+                </div>
+              </div>
+              <p class="text-sm">Summer Analytics Program 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-diagram-project"></i> Featured Projects
+        </h2>
+
+        <div class="glass-card p-8">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="https://github.com/shubhratchaursiya/Portfolio" target="_blank" class="skill-card p-6 text-center">
+              <i class="fa-solid fa-user fa-3x text-purple-500 mb-4"></i>
+              <h3 class="font-bold mb-2">Portfolio Website</h3>
+              <p class="text-sm text-gray-600">Personal portfolio showcasing skills and projects</p>
+            </a>
+
+            <a href="https://github.com/shubhratchaursiya/StudentManagementSystem.JavaProject" target="_blank" class="skill-card p-6 text-center">
+              <i class="fa-solid fa-graduation-cap fa-3x text-blue-500 mb-4"></i>
+              <h3 class="font-bold mb-2">Student Management</h3>
+              <p class="text-sm text-gray-600">Java-based student data management system</p>
+            </a>
+
+            <a href="https://github.com/shubhratchaursiya/GamingProgrammingwithUnity" target="_blank" class="skill-card p-6 text-center">
+              <i class="fa-solid fa-gamepad fa-3x text-green-500 mb-4"></i>
+              <h3 class="font-bold mb-2">Unity Games</h3>
+              <p class="text-sm text-gray-600">Interactive 3D games with C# scripting</p>
+            </a>
+
+            <a href="https://github.com/shubhratchaursiya/UI-UX-with-Graphical-Designing" target="_blank" class="skill-card p-6 text-center">
+              <i class="fa-solid fa-palette fa-3x text-pink-500 mb-4"></i>
+              <h3 class="font-bold mb-2">UI/UX Designs</h3>
+              <p class="text-sm text-gray-600">Creative designs and case studies</p>
+            </a>
+
+            <a href="https://github.com/shubhratchaursiya/CyberSecurity_" target="_blank" class="skill-card p-6 text-center">
+              <i class="fa-solid fa-shield-halved fa-3x text-red-500 mb-4"></i>
+              <h3 class="font-bold mb-2">Cybersecurity</h3>
+              <p class="text-sm text-gray-600">Security tools and vulnerability assessment</p>
+            </a>
+
+            <a href="https://github.com/shubhratchaursiya/DisasterManagementProject.PPT" target="_blank" class="skill-card p-6 text-center">
+              <i class="fa-solid fa-exclamation-triangle fa-3x text-orange-500 mb-4"></i>
+              <h3 class="font-bold mb-2">Disaster Management</h3>
+              <p class="text-sm text-gray-600">Emergency response planning system</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-certificate"></i> Certifications & Learning
+        </h2>
+
+        <div class="glass-card p-8">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-shield-halved text-red-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Oracle Cloud Applications</p>
+                <p class="text-xs text-gray-600">SCM, HCM, ERP, CX Certified (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-network-wired text-blue-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Cisco Networking</p>
+                <p class="text-xs text-gray-600">Networking Basics (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-robot text-purple-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">AI Tools & ChatGPT</p>
+                <p class="text-xs text-gray-600">be10X Certified (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-chart-line text-green-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Data Analytics</p>
+                <p class="text-xs text-gray-600">AcceleratorX Masterclass (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-brands fa-google text-blue-600 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Google Ads</p>
+                <p class="text-xs text-gray-600">AI Performance Ads (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-brands fa-python text-yellow-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Python Programming</p>
+                <p class="text-xs text-gray-600">UniAthena - Cambridge (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-database text-orange-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">SQL Database</p>
+                <p class="text-xs text-gray-600">Newton School (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-chart-pie text-teal-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Power BI</p>
+                <p class="text-xs text-gray-600">Wayspire Workshop (2025)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXTRA-CURRICULAR ===== -->
+    <section id="extracurricular" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-people-group"></i> Competitions & Events
+        </h2>
+
+        <div class="glass-card p-8">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-flag-checkered text-red-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Scintillations 2024</p>
+                <p class="text-xs text-gray-600">National Technical Fest</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-code text-blue-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">CodeRed4.0</p>
+                <p class="text-xs text-gray-600">VGU Jaipur (2024)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-lock text-purple-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Cursed Code CTF</p>
+                <p class="text-xs text-gray-600">MAIT New Delhi (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-lightbulb text-green-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">IEEE Project Expo</p>
+                <p class="text-xs text-gray-600">JECRC Foundation (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-road text-gray-600 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Road Hackathon</p>
+                <p class="text-xs text-gray-600">NHAI & HOAI (2025)</p>
+              </div>
+            </div>
+
+            <div class="skill-card p-4 flex items-center">
+              <i class="fa-solid fa-paint-brush text-orange-500 text-xl mr-3"></i>
+              <div>
+                <p class="font-semibold text-sm">Design of India</p>
+                <p class="text-xs text-gray-600">DTU (2025)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="page min-h-screen px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 section-header">
+          <i class="fa-solid fa-envelope-open-text"></i> Let's Connect
+        </h2>
+
+        <div class="glass-card p-8">
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="skill-card p-6 text-center">
+              <i class="fa-solid fa-envelope fa-3x text-red-500 mb-4"></i>
+              <h3 class="font-bold mb-2">Email</h3>
+              <p class="text-sm text-gray-600">shubhratchaursiya2005@gmail.com</p>
+            </div>
+
+            <div class="skill-card p-6 text-center">
+              <i class="fa-solid fa-phone fa-3x text-green-500 mb-4"></i>
+              <h3 class="font-bold mb-2">Phone</h3>
+              <p class="text-sm text-gray-600">+91 73398 93753</p>
+            </div>
+          </div>
+
+          <form id="contactForm" class="space-y-6" novalidate>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-white mb-2">Your Name</label>
+                <input id="name" name="name" type="text" class="form-input w-full p-3" placeholder="Full name" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-white mb-2">Email</label>
+                <input id="email" name="email" type="email" class="form-input w-full p-3" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-white mb-2">Message</label>
+              <textarea id="message" name="message" rows="5" class="form-input w-full p-3" placeholder="Write your message here..." required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="shinchan-btn px-8 py-3 font-semibold text-lg">
+                <i class="fas fa-paper-plane mr-2"></i>Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="header-bg py-8">
+    <div class="container mx-auto px-4 text-center">
+      <div class="glass-card p-6 inline-block">
+        <p class="text-gray-700 font-medium">© 2025 Shubhrat Chaursiya Portfolio. Made with ❤️</p>
+        <p class="text-sm text-gray-600 mt-2">All information provided is true to my knowledge.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Create animated particles
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 6 + 's';
+          particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      createParticles();
+
+      // Navigation functionality
+      const navBtns = document.querySelectorAll('button.nav-btn');
+      const pages = document.querySelectorAll('.page');
+
+      function showPage(pageId) {
+        pages.forEach(p => p.classList.remove('active'));
+        const el = document.getElementById(pageId);
+        if (el) el.classList.add('active');
+
+        navBtns.forEach(b => b.classList.remove('active-nav'));
+        const activeBtn = Array.from(navBtns).find(b => b.dataset.page === pageId);
+        if (activeBtn) activeBtn.classList.add('active-nav');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      navBtns.forEach(btn => {
+        btn.addEventListener('click', () => showPage(btn.dataset.page));
+      });
+
+      showPage('home');
+
+      // Enhanced contact form
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+          
+          if (!name || !email || !message) {
+            alert('Please fill all fields before sending.');
+            return;
+          }
+
+          // Email validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+
+          // Show loading state
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+          submitBtn.disabled = true;
+
+          // Simulate form submission
+          setTimeout(() => {
+            alert('Thank you for your message! I\'ll get back to you soon. 🚀');
+            contactForm.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 2000);
+        });
+      }
+
+      // Add smooth scrolling for better UX
+      document.documentElement.style.scrollBehavior = 'smooth';
+
+      // Add intersection observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe all cards for animation
+      document.querySelectorAll('.skill-card, .glass-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>
