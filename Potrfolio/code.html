@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shubhrat Chaursiya — Portfolio</title>
+
+  <!-- Tailwind (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary:#b615eb;
+      --secondary:#ffffff;
+      --dark:#212121;
+    }
+    body{
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color:#96d0d4;
+      color:var(--dark);
+    }
+    .page{ display:none; }
+    .page.active{ display:block; animation:fadeIn .35s ease; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    .shinchan-btn{
+      background-color:var(--primary);
+      color:rgb(225, 235, 235);
+      border-radius:9999px;
+      transition:all .18s;
+    }
+    .shinchan-btn:hover{ transform:translateY(-2px) scale(1.02); box-shadow:0 6px 18px rgba(0,0,0,.08); }
+
+    /* nav active button */
+    .nav-btn.active-nav{
+      box-shadow:0 6px 18px rgba(143, 26, 26, 0.14);
+      outline: 3px solid rgba(255,215,64,.12);
+    }
+
+    /* list items: show icon then text */
+    ul.list-disc-custom li { display:flex; gap:0.6rem; align-items:flex-start; margin-bottom:0.5rem; }
+    ul.list-disc-custom li i { color:var(--primary); margin-top:3px; min-width:20px; text-align:center; }
+
+    /* responsive container width */
+    .max-w-800 { max-width:800px; margin-left:auto; margin-right:auto; }
+
+    a.external { color:var(--primary); text-decoration:underline; }
+  </style>
+</head>
+<body>
+
+    
+  <!-- Header / Nav -->
+  <header class="bg-amber-100 py-4 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-code text-2xl text-red-500"></i>
+        <h1 class="text-2xl font-bold">
+          <span class="bg-gradient-to-r from-red-600 via-purple-500 to-blue-600 text-transparent bg-clip-text">
+            Shubhrat Chaursiya
+          </span>
+        </h1>
+      </div>
+
+      <nav>
+        <ul class="flex items-center space-x-3">
+          <!-- NOTE: use data-page attributes; script will attach handlers -->
+          <li><button type="button" data-page="home" class="shinchan-btn nav-btn px-4 py-2 text-sm">Home</button></li>
+          <li><button type="button" data-page="skills" class="shinchan-btn nav-btn px-4 py-2 text-sm">Skills</button></li>
+          <li><button type="button" data-page="social" class="shinchan-btn nav-btn px-4 py-2 text-sm">Social</button></li>
+          <li><button type="button" data-page="achievements" class="shinchan-btn nav-btn px-4 py-2 text-sm">Achievements</button></li>
+          <li><button type="button" data-page="Internship" class="shinchan-btn nav-btn px-4 py-2 text-sm">Internship</button></li>
+          <li><button type="button" data-page="projects" class="shinchan-btn nav-btn px-4 py-2 text-sm">Projects</button></li>
+          <li><button type="button" data-page="certifications" class="shinchan-btn nav-btn px-4 py-2 text-sm">Certifications</button></li>
+          <li><button type="button" data-page="extracurricular" class="shinchan-btn nav-btn px-4 py-2 text-sm">Extra-Curricular</button></li>
+          <li><button type="button" data-page="contact" class="shinchan-btn nav-btn px-4 py-2 text-sm">Contact</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HOME ===== -->
+<main class="py-12">
+  <section id="home" class="page active min-h-screen px-4">
+    <div class="max-w-800 mx-auto text-center">
+      <img src="11.jpg"
+           alt="Shubhrat avatar" class="mx-auto rounded-lg shadow-xl mb-6 w-48 h-48 object-cover">
+
+      <h2 align="center" style="font-size: 1.6em;">💫&nbsp;&nbsp;<span style="color:#881490b5">Shubhrat&nbsp;&nbsp;Chaursiya</span></h2>
+
+      <p align="center">
+        <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=800080&center=true&vCenter=true&width=700&lines=Aspiring+Software+Developer;UI%2FUX+%26+Graphic+Designer;Cybersecurity+%26+Java+Enthusiast;Unity+Game+Programmer;Always+Learning+%F0%9F%92%AB" alt="Typing SVG" />
+      </p>
+      
+      <p class="text-lg text-gray-700 mb-6">Frontend Developer & Graphical Designer with a passion for creative designs.</p>
+
+      <p align="center" class="text-lg leading-relaxed mb-6">
+        <b>👨‍🎓 Student</b> | <b>💻 Developer</b> | <b>🎨 Designer</b> | <b>🛡️ Cybersecurity Enthusiast</b><br>
+        📍 <strong>Jaipur, India</strong> &nbsp;|&nbsp; 📧 <strong>shubhratchaursiya2005@gmail.com</strong> &nbsp;|&nbsp; 📱 <strong>+91 73398 93753</strong><br>
+        <a href="https://www.linkedin.com/in/shubhrat-chaursiya-819672354/" class="external" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a> •
+        <a href="https://github.com/shubhratchaursiya" class="external" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a> •
+        <a href="https://x.com/shubhrat_0829" class="external" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> X</a> •
+        <a href="https://www.facebook.com/profile.php?id=100081059697888" class="external" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a> •
+        <a href="https://t.me/shubhrat_0829" class="external" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i> Telegram</a> •
+        <a href="https://www.instagram.com/shubhrat_0829/" class="external" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+      </p>
+
+      <!-- Updated Personal Details with gradient and hover effects -->
+      <div class="p-6 rounded-2xl shadow-xl mb-8"
+           style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+        <div class="bg-white bg-opacity-90 rounded-xl shadow-lg p-6 hover:shadow-xl 
+                   transform hover:-translate-y-1 transition-all duration-300">
+          <h3 class="text-2xl font-bold text-red-500 mb-4">
+            <i class="fa-solid fa-user-graduate mr-2"></i> Personal Details & Education
+          </h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li class="flex items-start">
+              <i class="fa-solid fa-graduation-cap text-red-500 mt-1 mr-2"></i>
+              <span>Pursuing Bachelor of Technology in Information Technology — Arya College of Engineering & IT (RTU). Aggregate: 8.5 CGPA (2023–2025)</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-calendar text-red-500 mt-1 mr-2"></i>
+              <span>Date of Birth: 08-12-2006</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-venus-mars text-red-500 mt-1 mr-2"></i>
+              <span>Gender: Male</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-language text-red-500 mt-1 mr-2"></i>
+              <span>Languages: Hindi, English</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-flag text-red-500 mt-1 mr-2"></i>
+              <span>Nationality: Indian</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-chess text-red-500 mt-1 mr-2"></i>
+              <span>Hobbies: Chess, Playing online games, Badminton</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-school text-red-500 mt-1 mr-2"></i>
+              <span>Senior Secondary — Decent Public Sr. Sec. School, Baran — 68.40% (2023)</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-school text-red-500 mt-1 mr-2"></i>
+              <span>Secondary — Decent Public Sr. Sec. School, Baran — 87% (2021)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+    <!-- ===== SKILLS ===== -->
+<section id="skills" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-laptop-code"></i> Skills
+    </h2>
+
+    <!-- Gradient background container -->
+    <div class="p-6 rounded-2xl shadow-xl"
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <div class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all flex items-center">
+          <i class="fa-solid fa-code text-red-500 text-xl mr-3"></i>
+          <span class="font-semibold">C, C++</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all flex items-center">
+          <i class="fa-brands fa-html5 text-orange-500 text-xl mr-3"></i>
+          <span class="font-semibold">HTML</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all flex items-center">
+          <i class="fa-brands fa-java text-blue-600 text-xl mr-3"></i>
+          <span class="font-semibold">Java, Advanced Java</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all flex items-center">
+          <i class="fa-brands fa-python text-yellow-500 text-xl mr-3"></i>
+          <span class="font-semibold">Python</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all flex items-center">
+          <i class="fa-solid fa-palette text-pink-500 text-xl mr-3"></i>
+          <span class="font-semibold">UI/UX & Graphical Design</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all flex items-center">
+          <i class="fa-solid fa-shield-halved text-green-500 text-xl mr-3"></i>
+          <span class="font-semibold">Cybersecurity basics & tools</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all flex items-center">
+          <i class="fa-brands fa-unity text-gray-700 text-xl mr-3"></i>
+          <span class="font-semibold">Unity game programming (C#)</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SOCIAL ===== -->
+<section id="social" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-share-nodes"></i> Connect With Me
+    </h2>
+
+    <!-- Gradient background container -->
+    <div class="p-6 rounded-2xl shadow-xl"
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <a href="https://www.instagram.com/shubhrat_0829/" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-instagram fa-2x text-pink-500"></i>
+          <div><strong>Instagram</strong><div class="text-sm text-gray-600">@shubhrat_0829</div></div>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-github fa-2x"></i>
+          <div><strong>GitHub</strong><div class="text-sm text-gray-600">shubhratchaursiya</div></div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/shubhrat-chaursiya-819672354/" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-linkedin fa-2x text-blue-700"></i>
+          <div><strong>LinkedIn</strong><div class="text-sm text-gray-600">Shubhrat Chaursiya</div></div>
+        </a>
+
+        <a href="mailto:shubhratchaursiya2005@gmail.com" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4">
+          <i class="fa-solid fa-envelope fa-2x text-red-500"></i>
+          <div><strong>Email</strong><div class="text-sm text-gray-600">shubhratchaursiya2005@gmail.com</div></div>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=100081059697888" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-facebook fa-2x text-blue-600"></i>
+          <div><strong>Facebook</strong><div class="text-sm text-gray-600">Profile</div></div>
+        </a>
+
+        <a href="https://x.com/shubhrat_0829" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-twitter fa-2x text-blue-400"></i>
+          <div><strong>X (Twitter)</strong><div class="text-sm text-gray-600">@shubhrat_0829</div></div>
+        </a>
+
+        <a href="https://t.me/shubhrat_0829" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-telegram fa-2x text-blue-500"></i>
+          <div><strong>Telegram</strong><div class="text-sm text-gray-600">@shubhrat_0829</div></div>
+        </a>
+
+        <a href="https://discord.com/channels/1100314303111888916/1100314303111888919" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-discord fa-2x text-indigo-500"></i>
+          <div><strong>Discord</strong><div class="text-sm text-gray-600">Community</div></div>
+        </a>
+
+        <a href="https://www.snapchat.com/add/shubhrat_0829?share_id=_mRgU6U6bz4&locale=en-IN" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fab fa-snapchat fa-2x text-yellow-400"></i>
+          <div><strong>Snapchat</strong><div class="text-sm text-gray-600">@shubhrat_0829</div></div>
+        </a>
+
+        <a href="https://unstop.com/u/shubhcha3051?lb=UdvalKbU&utm_medium=Share&utm_source=WhatsApp" 
+           class="bg-white bg-opacity-90 p-4 rounded-xl shadow-md hover:shadow-xl 
+                  transform hover:-translate-y-1 transition-all flex items-center gap-4" target="_blank">
+          <i class="fa-solid fa-award fa-2x text-red-500"></i>
+          <div><strong>Unstop</strong><div class="text-sm text-gray-600">Competition Profile</div></div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- ===== ACHIEVEMENTS ===== -->
+<section id="achievements" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-trophy"></i> Achievements
+    </h2>
+
+    <!-- Achievements Section -->
+    <div class="p-6 rounded-2xl shadow-xl mb-10" 
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-award text-yellow-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Participated in national technical fests.</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-chess text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">3rd Rank in Baran District Chess Association, Rajasthan (2021)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-briefcase text-blue-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Offer Letters from MicroIT India and Internshala</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Volunteer Section -->
+    <h3 class="text-2xl font-bold text-white text-center mb-6">
+      <i class="fa-solid fa-hands-helping"></i> Volunteership
+    </h3>
+    <div class="p-6 rounded-2xl shadow-xl" 
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-hands-helping text-green-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Certificate of Volunteership — Plasmid Innovation Pvt Ltd. (2024)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-medal text-orange-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Certificate of Appreciation & Project Completion — MEME and Devtown (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl 
+                    transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-university text-purple-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Sphinx — MNIT (2024)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- ===== INTERNSHIP ===== -->
+<section id="Internship" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-briefcase"></i> Internships
+    </h2>
+
+    <!-- Gradient background container -->
+    <div class="p-6 rounded-2xl shadow-xl" 
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid sm:grid-cols-2 gap-5">
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-user-shield text-red-500 text-xl"></i>
+          <span class="ml-2 font-semibold">LnB: Learn and Build — Cyber Security Intern (1 July 2024 - 1 Oct 2024)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-cloud text-blue-500 text-xl"></i>
+          <span class="ml-2 font-semibold">MicroIT — Cloud Computing Intern (1 March 2025 - 1 April 2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-code text-blue-500 text-xl"></i>
+          <span class="ml-2 font-semibold">MicroIT — Java Intern (1 April 2025 - 1 May 2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-paint-brush text-pink-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Kainshep — UI & UX with Graphical Designing (15 June 2025 - 15 July 2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-gamepad text-purple-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Salesforce Academy — Gaming Programming With Unity (15 June 2025 - 30 July 2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-database text-green-500 text-xl"></i>
+          <span class="ml-2 font-semibold">IIT Guwahati — 6 Week Summer Analytics Program (Data Science & Machine Learning) — 2025</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- ===== PROJECTS ===== -->
+<section id="projects" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-diagram-project"></i> Projects
+    </h2>
+
+    <!-- Gradient background container -->
+    <div class="p-6 rounded-2xl shadow-xl" 
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid sm:grid-cols-2 gap-5">
+
+        <a href="https://github.com/shubhratchaursiya/Portfolio" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">Portfolio</span>
+          <p class="text-sm text-gray-600 mt-1">A complete personal portfolio showcasing my skills, projects, and achievements.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/shubhratchaursiya" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">Github Profile Customization</span>
+          <p class="text-sm text-gray-600 mt-1">The source code for my personal GitHub profile page.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/StudentManagementSystem.JavaProject" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">Student Management System</span>
+          <p class="text-sm text-gray-600 mt-1">Java-based application for managing student data efficiently.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/GamingProgrammingwithUnity" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">Gaming Programming with Unity</span>
+          <p class="text-sm text-gray-600 mt-1">Developed interactive 3D games using Unity and C# scripting.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/MicroIT-Internship" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">MicroIT Internship</span>
+          <p class="text-sm text-gray-600 mt-1">Work done during my Java Internship at MicroIT.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/UI-UX-with-Graphical-Designing" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">UI/UX with Graphical Designing</span>
+          <p class="text-sm text-gray-600 mt-1">Creative designs and UI/UX case studies for apps and websites.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/CyberSecurity_" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">CyberSecurity</span>
+          <p class="text-sm text-gray-600 mt-1">Cybersecurity tasks and projects covering basic and intermediate levels.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/IITGuwahati.pathwaycom" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">IIT Guwahati Pathway</span>
+          <p class="text-sm text-gray-600 mt-1">Project work completed under IIT Guwahati program.</p>
+        </a>
+
+        <a href="https://github.com/shubhratchaursiya/DisasterManagementProject.PPT" target="_blank" 
+           class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fab fa-github text-gray-800 text-xl"></i>
+          <span class="ml-2 font-semibold">Disaster Management Project</span>
+          <p class="text-sm text-gray-600 mt-1">Presentation and plan for effective disaster management strategies.</p>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-certificate"></i> Certifications
+    </h2>
+
+    <!-- Gradient background container -->
+    <div class="p-6 rounded-2xl shadow-xl" 
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid sm:grid-cols-2 gap-5">
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Red_Hat_logo.svg" alt="Red Hat Logo" class="w-8 h-8 mr-3">
+          <span class="font-semibold">Red Hat Certified System Administrator (RHCSA) — 2025</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-shield-halved text-red-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Oracle Fusion Cloud Applications SCM Certified Foundations Associate — 2025</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-shield-halved text-red-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Oracle Fusion Cloud Applications HCM Certified Foundations Associate — 2025</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-shield-halved text-red-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Oracle Fusion Cloud Applications ERP Certified Foundations Associate — 2025</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-shield-halved text-red-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Oracle Fusion Cloud Applications CX Certified Foundations Associate — 2025</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-network-wired text-blue-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Networking Basics — Cisco Networking Academy (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-robot text-purple-500 text-xl"></i>
+          <span class="ml-2 font-semibold">AI Tools and ChatGPT Certified — be10X (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-chart-line text-green-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Data Analytics Masterclass — AcceleratorX (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-user-shield text-indigo-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Cyber Security Certified — LnB, Jaipur (2024)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-brands fa-google text-blue-600 text-xl"></i>
+          <span class="ml-2 font-semibold">AI Powered Performance Ads Certification — Google (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-code text-pink-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Roadmap To Become A Web Developer With GenAI Workshop — WsCube Tech, Jaipur (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-database text-orange-500 text-xl"></i>
+          <span class="ml-2 font-semibold">534 Day SQL Basics Course — Newton School (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-laptop text-gray-600 text-xl"></i>
+          <span class="ml-2 font-semibold">Web Development Basics — Physics Wallah (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-brands fa-python text-yellow-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Basics of Python — UniAthena (Cambridge International Qualifications, UK) (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-chart-pie text-teal-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Power BI Workshop — Wayspire (2025)</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+     
+
+    <!-- ===== EXTRA-CURRICULAR ===== -->
+   <section id="extracurricular" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-people-group"></i> Extra-Curricular Activities
+    </h2>
+
+    <!-- Gradient background container -->
+    <div class="p-6 rounded-2xl shadow-xl" 
+         style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-flag-checkered text-red-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Scintillations — 2024 (National Level Technical Fest)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-flag-checkered text-red-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Goonj — 2024 (National Level Technical Fest)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-code text-blue-500 text-xl"></i>
+          <span class="ml-2 font-semibold">CodeRed4.0 — VGU Jaipur (2024)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-lock text-purple-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Cursed Code — CTF, MAIT New Delhi (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-pen-nib text-pink-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Logo Making Competition — NIT Jamshedpur (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-question text-yellow-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Quiz-A-THAN by Micro-IT (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-lightbulb text-green-500 text-xl"></i>
+          <span class="ml-2 font-semibold">National Project Expo under IEEE — JECRC Foundation (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-code text-blue-600 text-xl"></i>
+          <span class="ml-2 font-semibold">ACM TCET Code Warz'25 — TCET, Mumbai (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-road text-gray-600 text-xl"></i>
+          <span class="ml-2 font-semibold">National Road Hackathon — NHAI & HOAI</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-briefcase text-brown-600 text-xl"></i>
+          <span class="ml-2 font-semibold">Cushman & Wakefield Consulting Challenge — Ashoka Consulting Club</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-code text-blue-700 text-xl"></i>
+          <span class="ml-2 font-semibold">Nova Coders Hackathon — Vision Groups of Institution (2025)</span>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-paint-brush text-orange-500 text-xl"></i>
+          <span class="ml-2 font-semibold">Design of India — DTU (2025)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="page min-h-screen px-4">
+  <div class="max-w-800 mx-auto">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">
+      <i class="fa-solid fa-envelope-open-text"></i> Contact Me
+    </h2>
+
+    <!-- Gradient Background -->
+    <div class="p-6 rounded-2xl shadow-xl"
+         style="background: linear-gradient(135deg, #667eea, #764ba2);">
+
+      <!-- Contact Info Cards -->
+      <div class="grid sm:grid-cols-2 gap-5 mb-8">
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md flex items-center gap-4 hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-envelope text-red-500 text-2xl"></i>
+          <div>
+            <strong>Email</strong>
+            <div class="text-sm text-gray-600">shubhratchaursiya2005@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="bg-white bg-opacity-90 rounded-xl p-4 shadow-md flex items-center gap-4 hover:shadow-xl transform hover:-translate-y-1 transition-all">
+          <i class="fa-solid fa-phone text-green-500 text-2xl"></i>
+          <div>
+            <strong>Phone</strong>
+            <div class="text-sm text-gray-600">+91 73398 93753</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contactForm" class="bg-white bg-opacity-95 p-6 rounded-xl shadow-lg space-y-4" novalidate>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Your Name</label>
+          <input id="name" name="name" type="text" class="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Full name" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input id="email" name="email" type="email" class="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="you@example.com" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea id="message" name="message" rows="5" class="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Write your message here..." required></textarea>
+        </div>
+        <div>
+          <button type="submit" class="w-full bg-indigo-500 text-white py-3 rounded-lg font-semibold hover:bg-indigo-600 transition-all">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="bg-amber-100 py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-700">© 2025 Shubhrat Chaursiya Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts: attach nav listeners, show pages, form handling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navBtns = document.querySelectorAll('button.nav-btn');
+      const pages = document.querySelectorAll('.page');
+
+      function showPage(pageId) {
+        pages.forEach(p => p.classList.remove('active'));
+        const el = document.getElementById(pageId);
+        if (el) el.classList.add('active');
+
+        // mark active nav button
+        navBtns.forEach(b => b.classList.remove('active-nav'));
+        const activeBtn = Array.from(navBtns).find(b => b.dataset.page === pageId);
+        if (activeBtn) activeBtn.classList.add('active-nav');
+
+        // scroll to top of page for better UX
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // attach click handlers
+      navBtns.forEach(btn => {
+        btn.addEventListener('click', () => showPage(btn.dataset.page));
+      });
+
+      // set initial page (home)
+      showPage('home');
+
+      // contact form handler (safe: only runs if element exists)
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          // simple validation
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+          if (!name || !email || !message) {
+            alert('Please fill all fields before sending.');
+            return;
+          }
+          // (In a real site you'd POST the form to your backend or use an email service)
+          alert('Thank you — your message has been noted!');
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
