@@ -41,9 +41,6 @@ Example: [View Portfolio](https://your-portfolio-link.com)
 <a href="https://www.linkedin.com/in/shubhrat-chaursiya-819672354/" target="_blank">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="40" height="40" alt="LinkedIn"/>
 </a>
-<a href="mailto:shubhratchaursiya2005@gmail.com" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Outlook_2013-2019_logo.svg" width="40" height="40" alt="Email"/>
-</a>
 </p>
 
 ---
